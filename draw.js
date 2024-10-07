@@ -14,13 +14,17 @@ export function draw(canvas) {
     x = x / 2;
     y = y / 2;
     
+    // TODO: animate this
+    let shift = 0.1;
+
     let r = Math.random();
     if (r < 0.33) {
-      x += 0.25;
-      y = 0.5 - y;
+      x += shift;
     } else if (r > 0.66) {
+      // Bottom left
       y += 0.5;
     } else {
+      // Bottom right
       x += 0.5;
       y += 0.5;
     }
