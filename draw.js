@@ -1,9 +1,12 @@
 export function draw(canvas) {
-  const ctx = canvas.getContext("2d");
-
   // Set the color for the rectangle
+  const ctx = canvas.getContext("2d");
   ctx.fillStyle = "blue";
+  drawOneStep(ctx, 0.1);
+}
 
+function drawOneStep(ctx, fraction) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   let size = 600;
 
   // x and y are in [0, 1]
@@ -14,12 +17,9 @@ export function draw(canvas) {
     x = x / 2;
     y = y / 2;
     
-    // TODO: animate this
-    let shift = 0.1;
-
     let r = Math.random();
     if (r < 0.33) {
-      x += shift;
+      x += fraction;
     } else if (r > 0.66) {
       // Bottom left
       y += 0.5;
