@@ -2,7 +2,14 @@ export function draw(canvas) {
   // Set the color for the rectangle
   const ctx = canvas.getContext("2d");
   ctx.fillStyle = "blue";
-  drawOneStep(ctx, 0.1);
+  let fraction = 0.0;
+  setInterval(() => {
+    fraction += 0.01;
+    if (fraction > 1) {
+      fraction -= 1;
+    }
+    drawOneStep(ctx, fraction);
+  }, 1000);
 }
 
 function drawOneStep(ctx, fraction) {
